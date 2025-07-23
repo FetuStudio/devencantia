@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Script from 'next/script'
 import '../styles/globals.css'
-import supabase from '../utils/supabaseClient'
+import { supabase } from '../utils/supabaseClient'
 
 function AlertBanner({ message, type }) {
   return (
