@@ -4,7 +4,6 @@ import '../styles/globals.css'
 import { supabase } from '../utils/supabaseClient'
 
 export default function App({ Component, pageProps }) {
-  const [alert, setAlert] = useState(null)
 
   useEffect(() => {
     // OneSignal init
