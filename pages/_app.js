@@ -3,22 +3,6 @@ import Script from 'next/script'
 import '../styles/globals.css'
 import { supabase } from '../utils/supabaseClient'
 
-function AlertBanner({ message, type }) {
-  return (
-    <div className={`alert-banner alert-${type}`}>
-      {message}
-      <style jsx>{`
-        .alert-banner {
-          padding: 1rem;
-          color: white;
-          background-color: ${type === 'error' ? 'red' : type === 'warning' ? 'orange' : 'blue'};
-          text-align: center;
-        }
-      `}</style>
-    </div>
-  )
-}
-
 export default function App({ Component, pageProps }) {
   const [alert, setAlert] = useState(null)
 
