@@ -26,7 +26,7 @@ export default function BooksManager() {
   const avatarUrl = "https://i.ibb.co/d0mWy0kP/perfildef.png";
   const navButtons = [
     { icon: "https://dev.encantia.lat/navbar/home.png", name: "Inicio", url: "/" },
-    { icon: "https://dev.encantia.lat/navbar/gestion.png", name: "Gestion", url: "/gestion" },
+    { icon: "https://dev.encantia.lat/navbar/gestion.png", name: "Gestion", url: "/gestionar" },
     { icon: "https://dev.encantia.lat/navbar/ipersonal.png", name: "Tu Información", url: "/infow" },
   ];
 
