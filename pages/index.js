@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <div className={styles.container}> {/* Usamos el CSS Module aquí */}
       <Head>
-        <title>Encantia</title>
+        <title>Encantia A.P.</title>
         <meta name="description" content="Web oficial de Encantia A.P." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
