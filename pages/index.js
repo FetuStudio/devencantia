@@ -40,7 +40,7 @@ export default function Home() {
     <div className={styles.container}> {/* Usamos el CSS Module aquí */}
       <Head>
         <title>Encantia</title>
-        <meta name="description" content="Web oficial de Encantia" />
+        <meta name="description" content="Web oficial de Encantia A.P." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {session ? <UserArea /> : <Auth />}
