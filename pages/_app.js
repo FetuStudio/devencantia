@@ -3,19 +3,34 @@ import Script from 'next/script'
 import '../styles/globals.css'
 import supabase from '../utils/supabaseClient'
 
+function AlertBanner({ message, type }) {
+  return (
+    <div className={`alert-banner alert-${type}`}>
+      {message}
+      <style jsx>{`
+        .alert-banner {
+          padding: 1rem;
+          color: white;
+          background-color: ${type === 'error' ? 'red' : type === 'warning' ? 'orange' : 'blue'};
+          text-align: center;
+        }
+      `}</style>
+    </div>
+  )
+}
+
 export default function App({ Component, pageProps }) {
   const [alert, setAlert] = useState(null)
 
   useEffect(() => {
     // OneSignal init
-    if (typeof window !== "undefined" && "OneSignal" in window) {
+    if (typeof window !== 'undefined') {
       window.OneSignalDeferred = window.OneSignalDeferred || []
       window.OneSignalDeferred.push(function (OneSignal) {
         OneSignal.init({
-          appId: "97df49d1-b67d-490b-9157-9eea6ff9a278",
-          serviceWorkerPath: "/OneSignalSDK.sw.js",
-          serviceWorkerUpdaterPath: "/OneSignalSDKUpdaterWorker.js",
-          serviceWorkerWorkerPath: "/OneSignalSDKWorker.js"
+          appId: '97df49d1-b67d-490b-9157-9eea6ff9a278',
+          serviceWorkerPath: '/OneSignalSDKWorker.js', // El path correcto para el worker
+          // Puedes agregar otras opciones si son necesarias
         })
       })
     }
@@ -29,7 +44,7 @@ export default function App({ Component, pageProps }) {
         .limit(1)
         .single()
 
-      if (data && !error) {
+      if (!error && data) {
         setAlert(data)
       }
     }
@@ -52,9 +67,7 @@ export default function App({ Component, pageProps }) {
       />
 
       {/* Alerta global si existe */}
-      {alert && (
-        <AlertBanner message={alert.message} type={alert.type || 'info'} />
-      )}
+      {alert && <AlertBanner message={alert.message} type={alert.type || 'info'} />}
 
       <Component {...pageProps} />
     </>
