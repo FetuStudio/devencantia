@@ -17,22 +17,6 @@ export default function App({ Component, pageProps }) {
         })
       })
     }
-
-    // Fetch alerta de Supabase
-    async function fetchAlert() {
-      const { data, error } = await supabase
-        .from('alerts')
-        .select('*')
-        .eq('active', true)
-        .limit(1)
-        .single()
-
-      if (!error && data) {
-        setAlert(data)
-      }
-    }
-
-    fetchAlert()
   }, [])
 
   return (
